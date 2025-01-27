@@ -34,9 +34,7 @@ export const signup = async (req, res, next) => {
       { expiresIn: "24h" }
     );
 
-    const verificationLink = `${
-      process.env.BASE_URL
-    }/verify-email?token=${encodeURIComponent(verificationToken)}`;
+    const verificationLink = `https://deploy-sooty-beta.vercel.app/verify-email?token=${encodeURIComponent(verificationToken)}`;
 
     const signupEmailBody = `
       <html>
