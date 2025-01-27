@@ -189,7 +189,7 @@ export const forgotPassword = async (req, res, next) => {
       expiresIn: "1h",
     });
 
-    const resetLink = `${process.env.BASE_URL}/reset-password?token=${resetToken}`;
+    const resetLink = `https://deploy-sooty-beta.vercel.app/reset-password?token=${resetToken}`;
 
     const passwordResetEmailBody = `
       <html>
