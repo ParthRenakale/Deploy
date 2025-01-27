@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -13,7 +11,7 @@ const LoginPage = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/signin", {
+      const response = await axios.post("https://deploy-tlg.onrender.com/signin", {
         email,
         password,
       });

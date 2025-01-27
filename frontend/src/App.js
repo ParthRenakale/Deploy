@@ -24,7 +24,7 @@ function App() {
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/verify-email" element={<EmailVerificationPage />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        {/* {isUserSignedIn && <Route path="/account" element={<Account />} />} */}
+        
         <Route
         path="/account"
         element={isUserSignedIn ? <Account /> : <Navigate to="/login" />}

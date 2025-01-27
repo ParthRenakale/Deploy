@@ -23,7 +23,7 @@ const ResetPassword = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/reset-password`,
+        `https://deploy-tlg.onrender.com/reset-password`,
         { token, newPassword }
       );
 

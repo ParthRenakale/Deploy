@@ -9,13 +9,11 @@ const EmailVerificationPage = () => {
 
   const navigate = useNavigate();
 
-  // Function to extract token from the URL
   const getTokenFromUrl = () => {
     const params = new URLSearchParams(window.location.search);
     return params.get("token");
   };
 
-  // Email verification function
   const handleEmailVerification = useCallback(async () => {
     const token = getTokenFromUrl();
     if (!token) {
@@ -27,11 +25,11 @@ const EmailVerificationPage = () => {
 
     try {
       setVerificationMessage("Verifying your email...");
-      // API call to verify the email
+     
       const verificationResponse = await axios.get(
-        `http://localhost:4000/verify-email?token=${token}`
+        `https://deploy-tlg.onrender.com/verify-email?token=${token}`
       );
-      //   console.log(verificationResponse.data);
+      
       if (verificationResponse.data.success) {
         toast.success("Email verified successfully! Redirecting to login.");
         setVerificationMessage(
@@ -39,7 +37,7 @@ const EmailVerificationPage = () => {
         );
         setTimeout(() => {
           navigate("/login");
-        }, 3000); // Redirect after 3 seconds
+        }, 3000);
       } else {
         toast.error("Email verification failed. Please try again.");
         setVerificationMessage("Email verification failed. Please try again.");
@@ -53,7 +51,7 @@ const EmailVerificationPage = () => {
     }
   }, [navigate]);
 
-  // Automatically trigger email verification when token is present in the URL
+  
   useEffect(() => {
     handleEmailVerification();
   }, [handleEmailVerification]);
