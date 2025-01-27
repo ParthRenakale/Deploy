@@ -27,7 +27,7 @@ function App() {
         
         <Route
         path="/account"
-        element={isUserSignedIn ? <Account /> : <Navigate to="/login" />}
+        element={<Account />}
       />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="*" element={<Default />} />
