@@ -34,7 +34,9 @@ export const signup = async (req, res, next) => {
       { expiresIn: "24h" }
     );
 
-    const verificationLink = `https://deploy-tlg.onrender.com/verify-email?token=${encodeURIComponent(verificationToken)}`;
+    const verificationLink = `${
+      process.env.BASE_URL
+    }/verify-email?token=${encodeURIComponent(verificationToken)}`;
 
     const signupEmailBody = `
       <html>
